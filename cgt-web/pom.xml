@@ -21,6 +21,7 @@
 			<artifactId>cgt-commons-utilities</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+		
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
