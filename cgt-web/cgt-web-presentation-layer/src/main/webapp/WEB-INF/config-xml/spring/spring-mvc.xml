@@ -20,7 +20,7 @@
     <mvc:interceptors>
       <mvc:interceptor>
             <mvc:mapping path="/privado/**"/>
-            <bean class="com.gs.sppi.web.controller.pub.seguridad.AutenticacionInterceptador"/>
+            <bean class="com.gs.cgt.web.pub.seguridad.AutenticacionInterceptador"/>
         </mvc:interceptor> 
         <!-- workaround to fix IE8 problem -->
         <bean id="webContentInterceptor"

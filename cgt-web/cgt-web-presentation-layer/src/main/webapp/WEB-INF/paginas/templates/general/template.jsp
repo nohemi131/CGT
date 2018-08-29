@@ -11,12 +11,16 @@
 		<title><tiles:insertAttribute name="title" /></title>
 		
 		<!-- CSS from Sppiner, loading -->
-		<link href="<c:url value='resources/css/css/bootstrap.min.css'/>" rel="stylesheet">
- 		      
+		<link href="<c:url value='resources/css/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
+		<link href="https://getbootstrap.com/docs/4.0/scss/mixins/_forms.scss" rel="stylesheet">
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   		 <!-- Include all compiled plugins (below), or include individual files as needed -->
-    	 <script src="<c:url value='resources/javascript/lib/bootstrap/bootstrap.min.js' />"></script>
+   		
+    	<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    	<script src="<c:url value='resources/javascript/lib/bootstrap/bootstrap.min.js' />"></script>
+
+
+    	       <script async src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom" id="_carbonads_js"></script>
 	</head>		
 	<body>	
 		<tiles:insertAttribute name="header" />			

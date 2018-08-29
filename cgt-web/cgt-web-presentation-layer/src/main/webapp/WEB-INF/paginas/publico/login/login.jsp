@@ -6,72 +6,51 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page session="false"%>
 
-<script type="text/javascript">
-<!--
-	if(typeof $ != 'undefined' && $!= null  ){
-		$.Login.init();
-	}else{
-		window.location.href="<c:url value='/' />";
-	}	
-//--> 
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields <link href="<c:url value='resources/css/paginas/login/login.css'/>" rel="stylesheet">
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
 </script>
-
-<section >
-	
-     	<md-content id="login"> 
-     		 
-					<md-card>
-					 
-					  <form method="post"  name="formlogin"  id="formlogin" ng-submit="login()"   autocomplete="off"  > 
-						<md-card-header>
-          					<md-card-avatar>
-            					<img class="md-user-avatar" src="resources/images/pages/logos/DCWNICONO.png" />
-          					</md-card-avatar>
-          					<md-card-header-text>
-					            <span class="md-title">Sign in</span>
-					            <span class="md-subhead">With your DC Designer Account</span>
-					        </md-card-header-text>
-        				</md-card-header>
-        				<md-card-title>
-	  						<md-card-title-text>
-	  						
-        			   			<div id="loginError" class="loginError" ng-class="{'': displayLoginError == true, 'none': displayLoginError == false}" style="display:none;">
-						            <spring:message code="login.error" /><br/>
-						        </div>
-								<md-input-container class="md-block" flex-gt-sm>
-									<label><spring:message code='Placeholder.user'/></label>									
-									<input mdInput name="username" id="username"  type="text" ng-model="credentials.username"  required=""/>	
-									
-									<div class="hint" ng-show="showHints">What is your username!</div>		
-									 
-									<div ng-messages="formlogin.username.$error" ng-show="showHints">
-							           <div ng-message="required">UserName is required.</div>
-							        </div>
-								</md-input-container>
-										
-														
-								<md-input-container class="md-block" flex-gt-sm >
-									<label ><spring:message code='Placeholder.password'/></label>										
-									<input mdInput name="password" id="password" type="password" ng-model="credentials.password"   required=""  />
-									
-									<div class="hint" ng-show="showHints">What is your username!</div>
-									
-									<div ng-messages="formlogin.password.$error" ng-show="showHints">
-									 	<div ng-message="required">Password is required.</div>
-									 </div>	
-								</md-input-container>								
-										
-									 			
-								<sec:csrfInput />	
-								
-			 			 	</md-card-title-text>			  
-  						</md-card-title>
-	  					<md-card-actions layout="row" layout-align="end center">
-				        	<md-button type="submit"  class="md-raised md-primary" name="submit" ><spring:message code='Button.login'/></md-button>
-				        </md-card-actions>
-				        </form>
-				        </div>				      
-					</md-card>				
-		</md-input-container>		
-	
+<section>
+	<div class="container"> 
+			<form method="post" action="<c:url value='authentication' />" class="form-signin needs-validation" novalidate> 
+				<div>
+				 <h2 class="form-signin-heading">
+			        	<span>Sign in</span>
+						<span>With your Account</span>
+				</h2>
+				<div>
+			  	<label for="username" class="sr-only"><spring:message code='Placeholder.user'/></label>									
+				<input type="text" id="username" class="form-control" placeholder="User Name" required autofocus/>
+				 <div class="invalid-tooltip">
+			        Looks good!
+			      </div>
+      			</div>
+      			<div>
+					<label for="password" class="sr-only"><spring:message code='Placeholder.password'/></label>										
+					<input type="password" id="password" class="form-control" placeholder="Password" required />
+						 <div class="invalid-tooltip">
+			        Looks good!
+			      </div>
+				</div>	
+				</div>
+				<sec:csrfInput />
+					<button type="submit" name="submit" class="btn btn-lg btn-primary btn-block"><spring:message code='Button.login'/></button>			
+		</form>      
+	</div>				
 </section>

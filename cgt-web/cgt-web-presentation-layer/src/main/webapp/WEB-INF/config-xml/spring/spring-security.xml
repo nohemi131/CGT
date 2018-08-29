@@ -35,10 +35,10 @@
 		<intercept-url pattern="**/private/com/**" access="permitAll" requires-channel="any"/>
 		<intercept-url pattern="**/public/restSpring/**" access="hasRole('ROLE_USER')" requires-channel="any"/>
 
- 		<form-login login-page="/notAllowed" authentication-failure-url="/errorLogin" default-target-url="/private/home"  />
- <!-- 
+ 		<form-login login-page="/" authentication-failure-url="/login" default-target-url="/login" login-processing-url="/authentication" />
+  
 		<logout logout-success-url="/login" invalidate-session="true" delete-cookies="true" logout-url="/logout"  />
- -->
+ 
 	 	<csrf disabled="true" />
 
 		<session-management>
