@@ -63,7 +63,7 @@ public class SpExampleDAOImpl extends Constants implements ISpExampleDAO{
 			
 			out=this.spExample.execute(map);
 			
-			example.setCode(Integer.parseInt( (String)out.get("CODE")));
+			example.setCode( (int)out.get("CODE"));
 			example.setMessage((String) out.get("MESSAGE"));
 			log.info(" Code: "+example.getCode() +" Message: "+ example.getMessage());
 			if(example.getCode() == 0) {
@@ -71,7 +71,7 @@ public class SpExampleDAOImpl extends Constants implements ISpExampleDAO{
 			}
 		
 		} catch (Throwable ex) {
-			log.error("Mensaje Error " +ex.fillInStackTrace());
+			log.error("Mensaje Error " +ex.fillInStackTrace(),ex);
 			example.setCode(-1);
 			example.setMessage(ex.getMessage());
 		}

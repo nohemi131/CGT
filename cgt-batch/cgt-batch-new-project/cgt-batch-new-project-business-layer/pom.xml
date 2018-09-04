@@ -7,4 +7,23 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>cgt-batch-new-project-business-layer</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.gs</groupId>
+  		<artifactId>cgt-batch-new-project-data-layer</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.gs</groupId>
+  		<artifactId>cgt-batch-new-project-data-interfaces</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.gs</groupId>
+  		<artifactId>
+  			cgt-batch-new-project-business-interfaces
+  		</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

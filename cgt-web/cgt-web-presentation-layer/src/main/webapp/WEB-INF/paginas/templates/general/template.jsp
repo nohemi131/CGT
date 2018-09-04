@@ -12,15 +12,13 @@
 		
 		<!-- CSS from Sppiner, loading -->
 		<link href="<c:url value='resources/css/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
-		<link href="https://getbootstrap.com/docs/4.0/scss/mixins/_forms.scss" rel="stylesheet">
+		<link href="<c:url value='resources/css/bootstrap/css/bootstrap-theme.min.css'/>" rel="stylesheet">
+		<link href="<c:url value='resources/css/bootstrap/css/bootstrapValidator.min.css'/>" rel="stylesheet">
+	
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   		
-    	<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
-    	<script src="<c:url value='resources/javascript/lib/bootstrap/bootstrap.min.js' />"></script>
-
-
-    	       <script async src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom" id="_carbonads_js"></script>
+    	<script src="<c:url value='resources/javascript/lib/bootstrap/bootstrap.min.js' />"></script>    	
+    	<script src="<c:url value='resources/javascript/lib/bootstrap/bootstrapvalidator.min.js' />"></script>
 	</head>		
 	<body>	
 		<tiles:insertAttribute name="header" />			

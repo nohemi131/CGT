@@ -5,52 +5,49 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page session="false"%>
-
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields <link href="<c:url value='resources/css/paginas/login/login.css'/>" rel="stylesheet">
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
-<section>
-	<div class="container"> 
-			<form method="post" action="<c:url value='authentication' />" class="form-signin needs-validation" novalidate> 
-				<div>
-				 <h2 class="form-signin-heading">
-			        	<span>Sign in</span>
-						<span>With your Account</span>
-				</h2>
-				<div>
-			  	<label for="username" class="sr-only"><spring:message code='Placeholder.user'/></label>									
-				<input type="text" id="username" class="form-control" placeholder="User Name" required autofocus/>
-				 <div class="invalid-tooltip">
-			        Looks good!
-			      </div>
-      			</div>
-      			<div>
-					<label for="password" class="sr-only"><spring:message code='Placeholder.password'/></label>										
-					<input type="password" id="password" class="form-control" placeholder="Password" required />
-						 <div class="invalid-tooltip">
-			        Looks good!
-			      </div>
-				</div>	
+<link href="<c:url value='resources/css/paginas/publico/login/login.css'/>" rel="stylesheet">
+<script src="<c:url value='resources/javascript/paginas/publico/login/login.js' />"></script>  
+<div class="container">
+	<form method="post" id="contact_form" action="<c:url value='authentication' />" class="well form-horizontal" >
+		<fieldset>
+			<legend>
+				<span>Sign in</span><span>With your Account</span>
+			</legend>
+			<div class="form-group">
+				<label class="col-md-4 control-label"><spring:message code='Placeholder.user' /></label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
+						<input id="username" name="username" placeholder="<spring:message code='Placeholder.user'/>" class="form-control" type="text" />
+					</div>
 				</div>
-				<sec:csrfInput />
-					<button type="submit" name="submit" class="btn btn-lg btn-primary btn-block"><spring:message code='Button.login'/></button>			
-		</form>      
-	</div>				
-</section>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label"><spring:message code='Placeholder.password' /></label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span> 
+						<input name="password" id="password" placeholder="<spring:message code='Placeholder.password'/>" class="form-control" type="password" />
+					</div>
+				</div>
+			</div>
+
+
+			<sec:csrfInput />
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-4">
+					<button type="submit" class="btn btn-warning">
+						<spring:message code='Button.login' />
+						<span class="glyphicon glyphicon-send"></span>
+					</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<c:if test="${not empty param.login_error}">
+  		<span class="help-block has-feedback  has-error"><font color="red">Your login attempt was not successful, try again.</font></span>
+	</c:if>
+</div>
+

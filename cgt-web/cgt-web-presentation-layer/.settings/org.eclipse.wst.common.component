@@ -4,11 +4,13 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <dependent-module archiveName="cgt-commons-entities-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cgt-commons-entities/cgt-commons-entities">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="cgt-commons-utilities-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cgt-commons-utilities/cgt-commons-utilities">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cgt-ws-client-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cgt-ws-client/cgt-ws-client">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/sppi-web-presentation-layer/target/classes"/>
